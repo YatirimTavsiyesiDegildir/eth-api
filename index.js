@@ -4,14 +4,13 @@ import * as express from 'express'
 const app = express()
 
 const MNEMONIC = process.env.MNEMONIC
-const CONTRACT_ADDRESS = '0x62694d2adf4943b03d20d0809f84103aa6bf03cf'
+const CONTRACT_ADDRESS = '0x56f7A7f3938c9bD35ba8BD4972c28D767bFB8Bc4'
 const ABI = [
-    'function setValue(string value)',
-    'function value() public view returns (string)'
+    'function getAllArtifacts() external view returns(Artifact[] memory)'
 ]
 
 app.get('/get', async (req, res) => {
-    const provider = ethers.getDefaultProvider('rinkeby')
+    const provider = ethers.getDefaultProvider('goerli')
     const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, provider)
     try {
         const value = await contract.value()
@@ -21,6 +20,7 @@ app.get('/get', async (req, res) => {
     }
 })
 
+/*
 app.get('/set/:value', async (req, res) => {
     const provider = ethers.getDefaultProvider('rinkeby')
     const wallet = ethers.Wallet.fromMnemonic(MNEMONIC).connect(provider)
@@ -32,5 +32,6 @@ app.get('/set/:value', async (req, res) => {
         res.send(e)
     }
 })
+*/
 
 app.listen()
