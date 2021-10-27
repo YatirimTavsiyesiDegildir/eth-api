@@ -3,7 +3,7 @@ import * as express from 'express'
 
 const app = express()
 
-const MNEMONIC = process.env.MNEMONIC
+const MNEMONIC = "test test test"
 const CONTRACT_ADDRESS = '0x56f7A7f3938c9bD35ba8BD4972c28D767bFB8Bc4'
 const ABI = [
     'function getAllArtifacts() external view returns(Artifact[] memory)'

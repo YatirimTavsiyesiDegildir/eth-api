@@ -16,8 +16,5 @@
             "src": "/set/([^/]+)",
             "dest": "/index.js"
         }
-    ],
-    "env": {
-        "MNEMONIC": "@mnemonic"
-    }
+    ]
 }
